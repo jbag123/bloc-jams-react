@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Album () = > (
+const Album = () => (
   <section className="album">
     Album will go here
   </section>
