@@ -23,11 +23,13 @@ class Album extends Component {
   play() {
     this.audioElement.play();
     this.setState({ isPlaying: true });
+    this.setState({ playClass: true });
   }
 
   pause() {
     this.audioElement.pause();
     this.setState({ isPlaying: false });
+    this.setState({ playClass: false });
   }
 
   setSong(song) {
@@ -64,10 +66,10 @@ class Album extends Component {
           </colgroup>
           <tbody>
           {this.state.album.songs.map( (song, index) =>
-            <tr className="song" onClick={() => this.handlesSongClick(song, index)} key={index}>
+            <tr className={this.state.playClass? "playing": "paused"} onClick={() => this.handlesSongClick(song, index)} key={index}>
               <td>
                 <button>
-                  <span className="song-number">{index+1}</span>
+                  <span className="song">{index+1}</span>
                   <span className="ion-md-play"></span>
                   <span className="ion-md-pause"></span>
                 </button>
