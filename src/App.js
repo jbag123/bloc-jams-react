@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import './App.css';
+import './styles/main.css'
+import './styles/landing.css'
 import Landing from './components/Landing';
 import Library from './components/Library';
 import Album from './components/Album';
@@ -10,7 +12,7 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <nav>
+          <nav className="navbar">
             <Link to='/'>Landing</Link>
             <Link to='/library'>Library</Link>
           </nav>

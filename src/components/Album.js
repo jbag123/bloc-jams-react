@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import albumData from './../data/albums.js';
+import PlayerBar from './PlayerBar';
 
 class Album extends Component {
   constructor(props) {
@@ -72,6 +73,11 @@ class Album extends Component {
           )}
           </tbody>
         </table>
+        <PlayerBar
+         isPlaying={this.state.isPlaying}
+         currentSong={this.state.currentSong}
+         handlesSongClick={() => this.handlesSongClick(this.state.currentSong)}
+         />
       </section>
     );
   }
