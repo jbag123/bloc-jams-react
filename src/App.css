@@ -26,3 +26,19 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+tr.paused .song,
+tr.playing:hover .ion-md-pause,
+tr:hover .ion-md-play
+{
+  display: block;
+}
+
+tr .ion-md-pause,
+tr .ion-md-play,
+tr:hover .song,
+tr:hover .paused .song,
+tr.playing .ion-md-play
+{
+  display: none;
+}

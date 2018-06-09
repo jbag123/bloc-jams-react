@@ -12,8 +12,9 @@ class Album extends Component {
 
     this.state = {
       album: album,
-      currentSong: album.songs[0],
-      isPlaying: false
+      currentSong: album.songs[1],
+      isPlaying: false,
+      playClass: false
     };
 
     this.audioElement = document.createElement('audio');
@@ -23,11 +24,13 @@ class Album extends Component {
   play() {
     this.audioElement.play();
     this.setState({ isPlaying: true });
+    this.setState({ playClass: true });
   }
 
   pause() {
     this.audioElement.pause();
     this.setState({ isPlaying: false });
+    this.setState({ playClass: false });
   }
 
   setSong(song) {
@@ -35,7 +38,7 @@ class Album extends Component {
     this.setState({ currentSong: song });
   }
 
-  handlesSongClick(song) {
+  handlesSongClick(song, index) {
     const isSameSong = this.state.currentSong === song;
     if (this.state.isPlaying && isSameSong) {
       this.pause();
@@ -43,7 +46,6 @@ class Album extends Component {
       if (!isSameSong) { this.setSong(song); }
       this.play();
     }
-
   }
 
   render() {
@@ -65,10 +67,16 @@ class Album extends Component {
           </colgroup>
           <tbody>
           {this.state.album.songs.map( (song, index) =>
-            <tr className="song" onClick={() => this.handlesSongClick(song) } key={index}>
-            <td className="song-number">{index + 1}</td>
-            <td className="song-title">{song.title}</td>
-            <td className="song-duration">{song.duration}</td>
+            <tr className={this.state.playClass? "playing": "paused"} onClick={() => this.handlesSongClick(song, index)} key={index}>
+              <td>
+                <button>
+                  <span className="song">{index+1}</span>
+                  <span className="ion-md-play"></span>
+                  <span className="ion-md-pause"></span>
+                </button>
+              </td>
+              <td className="song-title">{song.title}</td>
+              <td className="song-duration">{song.duration}</td>
             </tr>
           )}
           </tbody>
