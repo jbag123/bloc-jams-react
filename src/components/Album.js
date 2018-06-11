@@ -14,7 +14,7 @@ class Album extends Component {
       album: album,
       currentSong: album.songs[1],
       isPlaying: false,
-      playClass: false
+      activeIndex: null
     };
 
     this.audioElement = document.createElement('audio');
@@ -24,13 +24,16 @@ class Album extends Component {
   play() {
     this.audioElement.play();
     this.setState({ isPlaying: true });
-    this.setState({ playClass: true });
   }
 
   pause() {
     this.audioElement.pause();
     this.setState({ isPlaying: false });
-    this.setState({ playClass: false });
+  }
+
+  prev(song) {
+    this.setState({ currentSong: song-- });
+    this.audioElement.play();
   }
 
   setSong(song) {
@@ -40,11 +43,20 @@ class Album extends Component {
 
   handlesSongClick(song, index) {
     const isSameSong = this.state.currentSong === song;
+    const activeIndex = this.state.activeIndex === index ? null : index;
+    this.setState({activeIndex});
     if (this.state.isPlaying && isSameSong) {
       this.pause();
     } else {
       if (!isSameSong) { this.setSong(song); }
       this.play();
+    }
+  }
+
+  handlePrevClick(song) {
+    const isSameSong = this.state.currentSong === song;
+    if (isSameSong) {
+      this.prev(song);
     }
   }
 
@@ -67,7 +79,7 @@ class Album extends Component {
           </colgroup>
           <tbody>
           {this.state.album.songs.map( (song, index) =>
-            <tr className={this.state.playClass? "playing": "paused"} onClick={() => this.handlesSongClick(song, index)} key={index}>
+            <tr className={this.state.activeIndex === index ? 'item-active' : 'inactive'} onClick={() => this.handlesSongClick(song, index)} key={index}>
               <td>
                 <button>
                   <span className="song">{index+1}</span>
@@ -82,10 +94,11 @@ class Album extends Component {
           </tbody>
         </table>
         <PlayerBar
-         isPlaying={this.state.isPlaying}
-         currentSong={this.state.currentSong}
-         handlesSongClick={() => this.handlesSongClick(this.state.currentSong)}
-         />
+          isPlaying={this.state.isPlaying}
+          currentSong={this.state.currentSong}
+          handleSongClick={() => this.handleSongClick(this.state.currentSong)}
+          handlePrevClick={() => this.handlePrevClick(this.state.currentSong)}
+        />
       </section>
     );
   }
