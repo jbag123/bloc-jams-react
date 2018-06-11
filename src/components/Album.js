@@ -33,6 +33,11 @@ class Album extends Component {
     this.setState({ playClass: false });
   }
 
+  prev(song) {
+    this.setState({ currentSong: song-- });
+    this.audioElement.play();
+  }
+
   setSong(song) {
     this.audioElement.src = song.audioSrc;
     this.setState({ currentSong: song });
@@ -45,6 +50,13 @@ class Album extends Component {
     } else {
       if (!isSameSong) { this.setSong(song); }
       this.play();
+    }
+  }
+
+  handlePrevClick(song) {
+    const isSameSong = this.state.currentSong === song;
+    if (isSameSong) {
+      this.prev(song);
     }
   }
 
@@ -82,10 +94,11 @@ class Album extends Component {
           </tbody>
         </table>
         <PlayerBar
-         isPlaying={this.state.isPlaying}
-         currentSong={this.state.currentSong}
-         handlesSongClick={() => this.handlesSongClick(this.state.currentSong)}
-         />
+          isPlaying={this.state.isPlaying}
+          currentSong={this.state.currentSong}
+          handleSongClick={() => this.handleSongClick(this.state.currentSong)}
+          handlePrevClick={() => this.handlePrevClick(this.state.currentSong)}
+        />
       </section>
     );
   }
