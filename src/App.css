@@ -27,8 +27,9 @@
   to { transform: rotate(360deg); }
 }
 
-tr.inactive .song,
-tr.inactive:hover .ion-md-play
+tr .song,
+tr.inactive:hover .ion-md-play,
+tr.inactive .ion-md-pause
 {
   display: block;
 }
