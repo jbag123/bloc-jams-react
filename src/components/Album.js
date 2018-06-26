@@ -12,7 +12,7 @@ class Album extends Component {
 
     this.state = {
       album: album,
-      currentSong: album.songs[1],
+      currentSong: album.songs[0],
       currentTime: 0,
       duration: album.songs[0].duration,
       currentVolume: 80,
@@ -58,7 +58,7 @@ class Album extends Component {
     this.setState({ currentSong: song });
   }
 
-  handlesSongClick(song, index) {
+  handleSongClick(song, index) {
     const isSameSong = this.state.currentSong === song;
     const activeIndex = this.state.activeIndex === index ? null : index;
     this.setState({activeIndex});
@@ -132,7 +132,7 @@ class Album extends Component {
           </colgroup>
           <tbody>
           {this.state.album.songs.map( (song, index) =>
-            <tr className={this.state.activeIndex === index ? 'item-active' : 'inactive'} onClick={() => this.handlesSongClick(song, index)} key={index}>
+            <tr className={this.state.activeIndex === index ? 'item-active' : 'inactive'} onClick={() => this.handleSongClick(song, index)} key={index}>
               <td>
                 <button>
                   <span className="song">{index+1}</span>

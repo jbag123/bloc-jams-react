@@ -17,6 +17,7 @@ body {
         color: white;
         min-height: 100%;
         padding-bottom: 200px;
+        background-color: rgb(58,23,63);
 }
 
 .navbar {

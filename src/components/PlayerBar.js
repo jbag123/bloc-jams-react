@@ -8,7 +8,7 @@ class PlayerBar extends Component {
         <button id="previous" onClick={this.props.handlePrevClick} >
           <span className="ion-md-skip-backward"></span>
         </button>
-        <button id="play-pause" onClick={this.props.handlesSongClick}>
+        <button id="play-pause" onClick={this.props.handleSongClick}>
           <span className={this.props.isPlaying ? 'ion-md-pause' : 'ion-md-play'}></span>
         </button>
         <button id="next" onClick={this.props.handleNextClick}>
@@ -25,7 +25,7 @@ class PlayerBar extends Component {
           step="0.01"
           onChange={this.props.handleTimeChange}
         />
-        <span>{this.props.formatTime(this.props.currentTime)}</span>
+        <span>{this.props.formatTime(this.props.duration)}</span>
       </section>
       <section id="volume-control">
         <input
