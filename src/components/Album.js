@@ -12,7 +12,7 @@ class Album extends Component {
 
     this.state = {
       album: album,
-      currentSong: album.songs[0],
+      currentSong: album.songs[1],
       currentTime: 0,
       duration: album.songs[0].duration,
       currentVolume: 80,
@@ -109,7 +109,8 @@ class Album extends Component {
     const parsedTime = parseFloat(time);
     const minutes = Math.floor(parsedTime / 60);
     const secs = parsedTime - minutes * 60;
-    const roundSecs = Math.floor(secs);
+    let roundSecs = Math.floor(secs);
+    roundSecs = roundSecs < 10 ? '0' + roundSecs : roundSecs;
     return minutes + ':' + roundSecs;
   }
 
