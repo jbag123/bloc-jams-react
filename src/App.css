@@ -1,39 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700');
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+.container {
+    max-width: 72em;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: Montserrat;
+  color: #fff;
+}
+h1 {
+  padding: 1.75rem 0 0 1.5rem;
+  font-size: 2rem;
+  color: #a5a5a5;
+  display: inline-block;
+}
+p {
+  margin: 0px;
+}
 .App {
   text-align: center;
+  background-color: #fff;
 }
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
-
 .App-header {
   background-color: #222;
   height: 150px;
   padding: 20px;
   color: white;
 }
-
 .App-title {
   font-size: 1.5em;
 }
-
 .App-intro {
   font-size: large;
 }
-
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
 tr .song,
 tr.inactive:hover .ion-md-play,
 tr.inactive .ion-md-play
 {
   display: block;
 }
-
 tr.inactive .ion-md-pause,
 tr.inactive .ion-md-play,
 tr.item-active .song,
@@ -41,4 +58,34 @@ tr.item-active .ion-md-play,
 tr.inactive:hover .song
 {
   display: none;
+}
+ul {
+  min-height: 100vh;
+  background-color: #4f4f4f;
+}
+.navbar-brand {
+  margin-right: 0;
+}
+.nav-item {
+  background-color: #fff;
+}
+.nav-item:hover {
+  background-color: #4f4f4f;
+}
+.nav-item a {
+  color: #00B212;
+}
+.nav-item a:hover {
+  color: #00B212;
+}
+header {
+  background-color: #4f4f4f;
+}
+.landing [class^="col"] {
+  padding: 0;
+}
+
+.point {
+  background:linear-gradient(#4f4f4f,white 154%);
+  padding: 2rem;
 }
