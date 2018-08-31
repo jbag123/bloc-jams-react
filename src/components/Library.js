@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Container, Row, Col, Card, CardTitle, CardText, CardImg, CardImgOverlay } from 'reactstrap';
 import albumData from './../data/albums';
 
 class Library extends Component {
@@ -10,18 +11,30 @@ class Library extends Component {
 
   render() {
    return (
-     <section className='library'>
-     {
-       this.state.albums.map( (album, index) =>
-           <Link to={`/album/${album.slug}`} key={index}>
-           <img src={album.albumCover} alt={album.title} />
-           <div>{album.title}</div>
-           <div>{album.artist}</div>
-           <div>{album.songs.length} songs</div>
-           </Link>
-       )
-     }
-     </section>
+     <Col xs="10">
+     <Container className="App">
+       <section className='library'>
+         <Row>
+           {
+             this.state.albums.map( (album, index) =>
+                 <Col xs={6}  key={`key-${album.title}`}>
+                     <Link to={`/album/${album.slug}`} >
+                     <Card>
+                       <CardImg src={album.albumCover} alt={album.title} />
+                       <CardImgOverlay>
+                         <CardTitle>{album.title}</CardTitle>
+                         <CardText>{album.artist}</CardText>
+                         <CardText>{album.songs.length} songs</CardText>
+                       </CardImgOverlay>
+                     </Card>
+                     </Link>
+                </Col>
+             )
+           }
+         </Row>
+       </section>
+     </Container>
+     </Col>
     );
   }
 }

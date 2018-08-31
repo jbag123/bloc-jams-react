@@ -3,9 +3,8 @@ import { Route, Link } from 'react-router-dom';
 import './App.css';
 import './styles/main.css'
 import './styles/landing.css'
-import { Container, Nav, NavItem } from 'reactstrap';
-import { Row, Col } from 'reactstrap';
-import logo from './assets/images/bloc_jams_logo.png'
+import { Container, Nav, NavItem, Row, Col } from 'reactstrap';
+import logo from '../src/assets/images/bloc_jams_logo.png'
 import Landing from './components/Landing';
 import Library from './components/Library';
 import Album from './components/Album';
@@ -16,7 +15,7 @@ class App extends Component {
       <div>
       <header>
         <Row>
-          <Col sm="12" md={{ size: 6, offset: 3 }}>
+          <Col sm="12" md={{ size: 6, offset: 1 }}>
           <div className="clearfix">
           <img alt="logo" className="float-left p-3" src={logo} />
           <h1>Turn the music up!</h1>
@@ -34,8 +33,8 @@ class App extends Component {
         </main>
       </Col>
       <Col xs="2">
-        <nav>
-          <Nav className="sidebar justified" vertical>
+        <nav className=" h-100">
+          <Nav className="sidebar justified  h-100" vertical>
             <NavItem className="navbar-brand pb-3">
               <Link to='/'>Landing</Link>
             </NavItem>
