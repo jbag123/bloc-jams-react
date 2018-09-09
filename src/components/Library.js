@@ -11,7 +11,7 @@ class Library extends Component {
 
   render() {
    return (
-     <Col xs="10">
+     <Col xs="12">
      <Container className="App">
        <section className='library'>
          <Row>

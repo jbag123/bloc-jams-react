@@ -14,14 +14,12 @@ class App extends Component {
     return (
       <div>
       <header>
-        <Row>
-          <Col sm="12" md={{ size: 6, offset: 1 }}>
+      <Col sm="12" md={{ size: 6, offset: 1 }}>
           <div className="clearfix">
           <img alt="logo" className="float-left p-3" src={logo} />
           <h1>Turn the music up!</h1>
           </div>
-          </Col>
-        </Row>
+      </Col>
       </header>
       <Container className="App">
       <Row>

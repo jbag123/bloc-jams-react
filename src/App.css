@@ -49,7 +49,6 @@ p {
   font-size: large;
 }
 .App img {
-  padding: 0 2em 2em 0;
   width: 100%;
 }
 @keyframes App-logo-spin {
@@ -131,6 +130,9 @@ header .row {
 .point {
   background:linear-gradient(#4f4f4f,white 154%);
   padding: 2rem;
+}
+.card {
+  border-radius: 0;
 }
 .card-img-overlay {
   background: #8080803d;
