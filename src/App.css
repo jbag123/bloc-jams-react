@@ -57,7 +57,7 @@ p {
 }
 table {
   border-collapse: collapse;
-  margin: 4em 0 2em;
+  margin: 0em 1em 2em;
   table-layout: fixed;
   width: 100%;
 }
@@ -101,11 +101,13 @@ button {
 }
 .nav-item:hover {
   background-color: #4f4f4f;
+  border-le: solid 2px #00B212;
+}
+.nav-item:hover a {
+  color: #00B212;
+  text-decoration: underline;
 }
 .nav-item a {
-  color: #00B212;
-}
-.nav-item a:hover {
   color: #00B212;
 }
 header {

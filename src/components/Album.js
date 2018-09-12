@@ -117,6 +117,7 @@ class Album extends Component {
 
   render() {
     return (
+      <div>
       <section className="album">
       <Row>
       <Col xs={6}>
@@ -152,7 +153,11 @@ class Album extends Component {
           )}
           </tbody>
         </table>
+        </Col>
+        </Row>
+        </section>
         <PlayerBar
+          album={this.state.album}
           isPlaying={this.state.isPlaying}
           currentSong={this.state.currentSong}
           currentTime={this.audioElement.currentTime}
@@ -165,10 +170,7 @@ class Album extends Component {
           handleVolumeChange={(e) => this.handleVolumeChange(e)}
           formatTime={(time) => this.formatTime(time)}
         />
-        </Col>
-        </Row>
-        </section>
-
+        </div>
     );
   }
 }

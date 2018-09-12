@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
+
 class PlayerBar extends Component {
   render() {
     return (
       <section className="player-name">
+      <h3 className="artist">{this.props.album.artist}</h3>
       <section id="buttons">
         <button id="previous" onClick={this.props.handlePrevClick} >
           <span className="ion-md-skip-backward"></span>
@@ -14,8 +16,8 @@ class PlayerBar extends Component {
         <button id="next" onClick={this.props.handleNextClick}>
           <span className="ion-md-skip-forward"></span>
         </button>
+        <span>{this.props.formatTime(this.props.currentTime)}</span>
       </section>
-      <span>{this.props.formatTime(this.props.currentTime)}</span>
       <section id="time-control">
         <input
           type="range"
