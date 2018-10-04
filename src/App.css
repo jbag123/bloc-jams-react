@@ -101,7 +101,7 @@ button {
 }
 .nav-item:hover {
   background-color: #4f4f4f;
-  border-le: solid 2px #00B212;
+  border-left: solid 2px #00B212;
 }
 .nav-item:hover a {
   color: #00B212;

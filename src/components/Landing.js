@@ -6,7 +6,8 @@ class Landing extends Component {
     constructor(props) {
     super(props);
     this.compEl = React.createRef();
-  }
+  } 
+
   componentDidMount() {
   	// Get the components DOM node
     var elem = this.compEl.current;
